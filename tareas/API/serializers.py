@@ -7,10 +7,11 @@ class TareaSerializer(serializers.ModelSerializer):
 		model = Tarea
 		fields = ['pk','descripcion', 'duracion', 'tiempo', 'status']
 
-	def validate(self, data):
+	def validate_status(self, value):
 		"""
 		Check that the start is before the stop.
 		"""
-		if data['status'] == "completado":
+#		if data['status'] != "completado":
+		if 'completado' in value:
 			raise serializers.ValidationError("Tarea completada")
-		return data
+		return value

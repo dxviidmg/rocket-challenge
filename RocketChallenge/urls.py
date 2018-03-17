@@ -20,5 +20,5 @@ from tareas.API import urls as apiURLs
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^tareas/api', include(apiURLs)),
+    url(r'^api/tasks', include(apiURLs)),
 ]
